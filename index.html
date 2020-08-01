@@ -6,7 +6,9 @@
     <title>Movie Rental</title>
 </head>
 <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
     *{
+        font-family: "Poppins", sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
@@ -40,9 +42,20 @@
         align-items: center;
         justify-content: space-between;
     }
+
+    .container .nav h2 {
+        color:  #5c2953;
+        font-weight: 900;
+        z-index: 100;
+        font-size: 30px;
+    }
+
     .container h3 {
         margin-right: 50px;
-        z-index: 100;
+        color:  #5c2953;
+        font-weight: 800;
+        font-size: 25px;
+
     }
     .container ul li {
         display: inline;
@@ -77,13 +90,23 @@
         width: 80px;
         height: 30px;
         margin-left: -20px;
-        background-color: #4cbb17;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
         border: none;
         border-radius: 0 7px 7px 0; 
     }
 
+    .search-area button:focus:not(:active){
+        outline: none;
+    }
+
     .active{
-        color: green;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        border-radius: 7px;
+        width: 100%;
+        padding: 7px;
+
     }
 
     .movie-list {
@@ -96,6 +119,11 @@
         justify-content: center;
     }
 
+    .movie-card .right-float span{
+        font-size: 0.7em;
+        color:  #702963;
+        font-weight: bolder;
+    }
     .movie-card {
         margin-top: 20px;
         display: flex;
@@ -105,6 +133,13 @@
         padding: 20px;
 
     }
+
+    .title{
+        color: #66023c;
+        font-weight: bolder;
+        cursor: context-menu;
+    }
+
     .shadow {
         box-shadow:  0px 9px 58px -27px rgba(0,0,0,0.17);
     }
@@ -121,8 +156,11 @@
         height: 30px;
         padding: 20px;
         border-radius: 7px;
-        background-color: #4cbb17;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        cursor: context-menu;
     }
+
 
     .movie-card .right-float{
         display: flex;
@@ -138,7 +176,7 @@
             <h2>Movie Rental</h2>
             <ul>
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Rented Movies</a></li>
+                <li ><a href="#">Rented Movies</a></li>
                 
             </ul>
         </div>
@@ -153,8 +191,9 @@
                 </div>
                 <div class="movie-card shadow">
                     <div class="right-float">
-                        <h4>Movie Name</h4>
+                        <h4 class="title">Movie Name</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                        <span>genre</span>
                     </div>
                     <div class="left-float">
                         <span>Rent</span>
@@ -162,8 +201,9 @@
                 </div>
                 <div class="movie-card shadow">
                     <div class="right-float">
-                        <h4>Movie Name</h4>
+                        <h4 class="title">Movie Name</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                        <span>genre</span>
                     </div>
                     <div class="left-float">
                         <span>Rent</span>
@@ -171,8 +211,9 @@
                 </div>
                 <div class="movie-card shadow">
                     <div class="right-float">
-                        <h4>Movie Name</h4>
+                        <h4 class="title">Movie Name</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                        <span>genre</span>
                     </div>
                     <div class="left-float">
                         <span>Rent</span>
