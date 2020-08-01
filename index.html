@@ -12,6 +12,23 @@
         box-sizing: border-box;
         /* border: 1px solid green; */
     }
+    body{
+        background-color: #fafafa;
+    }
+
+    .container::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path:  circle(58.7% at 29% 10%);
+        width: 100%;
+        height: 100%;
+        background-color: #d9e4f5;
+        background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+        z-index: -1;
+    }
+
     .container{
         padding: 20px;
         max-width: 760px;
@@ -25,6 +42,7 @@
     }
     .container h3 {
         margin-right: 50px;
+        z-index: 100;
     }
     .container ul li {
         display: inline;
@@ -32,6 +50,13 @@
     }
     .container ul li:last-child {
         margin-right: 0;
+    }
+
+    .container ul li a {
+        text-decoration: none;
+        color: #000000;
+        z-index: 100;
+        
     }
     .container .body {
         margin-top: 50px;
@@ -52,6 +77,9 @@
         width: 80px;
         height: 30px;
         margin-left: -20px;
+        background-color: #4cbb17;
+        border: none;
+        border-radius: 0 7px 7px 0; 
     }
 
     .active{
@@ -87,7 +115,13 @@
 
     .movie-card .left-float {
         display: flex; 
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
+        margin-top: 12px;
+        height: 30px;
+        padding: 20px;
+        border-radius: 7px;
+        background-color: #4cbb17;
     }
 
     .movie-card .right-float{
@@ -103,8 +137,9 @@
         <div class="nav">
             <h2>Movie Rental</h2>
             <ul>
-                <li class="active">Home</li>
-                <li>Rented Movies</li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Rented Movies</a></li>
+                
             </ul>
         </div>
         <div class="body">
