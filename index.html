@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Rental</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        /* border: 1px solid green; */
+    }
+    .container{
+        padding: 20px;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    .container .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .container h3 {
+        margin-right: 50px;
+    }
+    .container ul li {
+        display: inline;
+        margin-right: 50px;
+    }
+    .container ul li:last-child {
+        margin-right: 0;
+    }
+    .container .body {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .search-area{
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-area input{
+        height: 30px;
+        width: 80%;
+        outline: none;
+    }
+    .search-area button {
+        width: 80px;
+        height: 30px;
+        margin-left: -20px;
+    }
+
+    .active{
+        color: green;
+    }
+
+    .movie-list {
+        margin-top: 50px;
+        
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .movie-card {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px grey solid;
+        border-radius: 7px;
+        padding: 20px;
+
+    }
+    .shadow {
+        box-shadow:  0px 9px 58px -27px rgba(0,0,0,0.17);
+    }
+
+    .movie-card span {
+        float: right;
+    }
+
+    .movie-card .left-float {
+        display: flex; 
+        align-items: flex-end;
+    }
+
+    .movie-card .right-float{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h2>Movie Rental</h2>
+            <ul>
+                <li class="active">Home</li>
+                <li>Rented Movies</li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="search-area">
+                <input type="text">
+                <button >Search</button>
+            </div>
+            <div class="movie-list">
+                <div class="header">
+                    <h3>Movies</h3>
+                </div>
+                <div class="movie-card shadow">
+                    <div class="right-float">
+                        <h4>Movie Name</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                    </div>
+                    <div class="left-float">
+                        <span>Rent</span>
+                    </div>
+                </div>
+                <div class="movie-card shadow">
+                    <div class="right-float">
+                        <h4>Movie Name</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                    </div>
+                    <div class="left-float">
+                        <span>Rent</span>
+                    </div>
+                </div>
+                <div class="movie-card shadow">
+                    <div class="right-float">
+                        <h4>Movie Name</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores, unde laborum provident autem assumenda nobis fugiat voluptatibus eligendi totam.</p>
+                    </div>
+                    <div class="left-float">
+                        <span>Rent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
