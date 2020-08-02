@@ -20,15 +20,24 @@ const Movie = function(){
             const movieCardDiv = document.createElement('div');
             movieCardDiv.classList.add('movie-card')
             movieCardDiv.classList.add('shadow')
-            movieCardDiv.innerHTML += `
-            <div class="right-float">
-                <h4 class="title">${movie.title}</h4>
-                <p>${movie.description}.</p>
-                <span>${movie.genre}</span>
-            </div>
-            <div class="left-float">
-                <span class="rent">Rent</span>
-            </div>`
+            if(!movie.rented){
+                movieCardDiv.innerHTML += `
+                <div class="right-float">
+                    <h4 class="title">${movie.title}</h4>
+                    <p>${movie.description}.</p>
+                    <span>${movie.genre}</span>
+                </div>
+                <div class="left-float">
+                    <span class="rent">Rent</span>
+                </div>`
+            }else{
+                movieCardDiv.innerHTML += `
+                <div class="right-float">
+                    <h4 class="title">${movie.title}</h4>
+                    <p>${movie.description}.</p>
+                    <span>${movie.genre}</span>
+                </div>`
+            }
             movieListDiv.appendChild(movieCardDiv)
         })
     }
@@ -47,7 +56,7 @@ const Movie = function(){
             //for every key in the movie object, loop through it's value to see if you'll find a match. This way search checks both the title of a movie and description and even the genre
             Object.keys(movie).filter((key)=>{
                 //the && operator is to ensure there are duplicates in the array
-                if(searchValue.test(movie[key]) && !filtered.includes(movie)){
+                if(searchValue.test(movie[key]) && !filtered.includes(movie) && !movie.rented){
                     filtered.push(movie)
                 }
             })
@@ -58,8 +67,8 @@ const Movie = function(){
         <div class="header">
             <h3>Movies</h3>
         </div>`
-        this.createMovieCard(filtered)      
-        return filtered
+        this.createMovieCard(filtered)  
+        this.routine()
     }
 
     this.rent = (e) => {
@@ -74,6 +83,13 @@ const Movie = function(){
         console.log(movie)
     }
 
+    this.routine = () => {
+        const rentButtons = document.querySelectorAll('.rent')
+        rentButtons.forEach(button => {
+            button.addEventListener('click', this.rent)
+        })
+    }
+
 }
 
 
@@ -86,17 +102,21 @@ function onLoadFunction(){
     movieObject.createMovieCard(movieObject.getMovies());
     console.log(movieObject.getMovies())
 
-    //user induced search 
-    document.querySelector('.search').addEventListener('keydown', (e) => {
-        if(e.target.value.length > -1){
-            movieObject.searchMovie(e.target.value);
-        }
-    })
+    function routine(){
+        //user induced search 
+        document.querySelector('.search').addEventListener('keydown', (e) => {
+            if(e.target.value.length > -1){
+                movieObject.searchMovie(e.target.value);
+            }
+        })
 
-    const rentButtons = document.querySelectorAll('.rent')
-    rentButtons.forEach(button => {
-        button.addEventListener('click', movieObject.rent)
-    })
+        const rentButtons = document.querySelectorAll('.rent')
+        rentButtons.forEach(button => {
+            button.addEventListener('click', movieObject.rent)
+        })
+    }
+
+    routine()
 
     document.querySelector('.rented-nav').addEventListener('click', (e)=>{
         const parent = e.target.parentNode.parentNode
@@ -113,6 +133,7 @@ function onLoadFunction(){
             return movie.rented == true
         })
         movieObject.createMovieCard(rentedMovies)
+        routine()
     })
     document.querySelector('.home-nav').addEventListener('click', (e)=>{
         const parent = e.target.parentNode.parentNode
@@ -129,6 +150,7 @@ function onLoadFunction(){
             return movie.rented == false
         })
         movieObject.createMovieCard(movies)
+        routine()
     })
 
     var tl = gsap.timeline();
