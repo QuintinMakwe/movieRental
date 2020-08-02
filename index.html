@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Rental</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
     *{
@@ -57,6 +58,12 @@
         font-size: 25px;
 
     }
+
+    .container ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .container ul li {
         display: inline;
         margin-right: 50px;
@@ -82,13 +89,13 @@
     }
 
     .search-area input{
-        height: 30px;
+        height: 40px;
         width: 80%;
         outline: none;
     }
     .search-area button {
         width: 80px;
-        height: 30px;
+        height: 40px;
         margin-left: -20px;
         background-color: #1fd1f9;
         background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
@@ -111,7 +118,6 @@
 
     .movie-list {
         margin-top: 50px;
-        
     }
 
     .header {
@@ -173,10 +179,10 @@
 <body>
     <div class="container">
         <div class="nav">
-            <h2>Movie Rental</h2>
+            <h2 class="logo">Movie Rental</h2>
             <ul>
                 <li class="active"><a href="#">Home</a></li>
-                <li ><a href="#">Rented Movies</a></li>
+                <li ><a href="#">Rented</a></li>
                 
             </ul>
         </div>
@@ -223,4 +229,9 @@
         </div>
     </div>
 </body>
+<script>
+    var tl = gsap.timeline();
+    tl.from('.logo', {duration:2, rotation:360})
+    tl.from('.movie-card', {duration:2,opacity: 0, y: "random(-200, 200)", ease:"back", stagger: 0.5})
+</script>
 </html>
